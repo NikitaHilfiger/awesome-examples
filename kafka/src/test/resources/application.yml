@@ -1,0 +1,9 @@
+kafka:
+  bootstrap-servers: localhost:9092
+
+spring:
+  cloud:
+    zookeeper:
+      connectString: localhost:2181
+  application:
+    name: test-app

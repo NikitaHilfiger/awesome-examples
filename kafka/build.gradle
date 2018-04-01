@@ -1,0 +1,49 @@
+group 'awesome-examples'
+version '0.1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+        springKafkaVersion = '1.2.2.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "http://repo.spring.io/libs-release" }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+jar {
+    baseName = 'any-examples'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    compile "org.springframework.kafka:spring-kafka:$springKafkaVersion"
+
+/*
+    We also include spring-kafka-test in order to have access
+    to an embedded Kafka broker when running our unit test.
+*/
+    testCompile "org.springframework.kafka:spring-kafka-test:$springKafkaVersion"
+    compile 'org.projectlombok:lombok:1.16.16'
+}

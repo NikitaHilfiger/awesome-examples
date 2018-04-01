@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+management:
+  port: 9001
+  address: 127.0.0.1
+
+spring:
+  cloud:
+    zookeeper:
+      connectString: localhost:2181
+  application:
+    name: test-app
+
+kafka:
+  bootstrap-servers: localhost:9092
