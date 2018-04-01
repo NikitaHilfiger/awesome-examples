@@ -1,4 +1,4 @@
-group 'awesome-examples'
+group 'kafka-example'
 version '0.1.0-SNAPSHOT'
 
 buildscript {
@@ -23,7 +23,7 @@ apply plugin: 'org.springframework.boot'
 sourceCompatibility = 1.8
 
 jar {
-    baseName = 'any-examples'
+    baseName = 'kafka-example'
     version = '0.1.0'
 }
 
