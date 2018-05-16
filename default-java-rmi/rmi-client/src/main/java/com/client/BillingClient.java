@@ -6,22 +6,21 @@ import main.java.com.client.shared.Card;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
-import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 
 public class BillingClient {
     //Для регистрации RMI Registry, у который будет отдавать адреса RMI объектов
-    String localhost    = "http://127.0.0.1/";
+    String localhost = "http://127.0.0.1/";
     String RMI_HOSTNAME = "java.rmi.server.hostname";
     String RMI_CODEBASE = "java.rmi.server.codebase";
 
     String SERVICE_PATH = "rmi://localhost/BillingService";
 
-    String[][] CARDS    = {
+    String[][] CARDS = {
             {"Ivanov", "1213-456-7890"},
             {"Petrov", "987-654-3210"}
     };
-    double[]   MONEYS   =  {135790.0, 24680.0};
+    double[] MONEYS = {135790.0, 24680.0};
 
     public BillingClient() {
         try {
@@ -51,13 +50,20 @@ public class BillingClient {
         }
     }
 
-    private Card createCard (final int idx) {
+    public static void main(String[] args) {
+        System.setProperty("java.security.policy", "client.policy");
+
+        new BillingClient();
+        System.exit(0);
+    }
+
+    private Card createCard(final int idx) {
         return new Card(CARDS[idx][0], CARDS[idx][1], 0);
     }
 
     private void registerCards(BillingService bs) {
         for (int i = 0; i < CARDS.length; i++) {
-            Card card = createCard (i);
+            Card card = createCard(i);
             try {
                 bs.addNewCard(card);
             } catch (RemoteException e) {
@@ -69,7 +75,7 @@ public class BillingClient {
 
     private void addMoney(BillingService bs) {
         for (int i = 0; i < CARDS.length; i++) {
-            Card card = createCard (i);
+            Card card = createCard(i);
             try {
                 bs.addMoney(card, MONEYS[i]);
             } catch (RemoteException e) {
@@ -81,7 +87,7 @@ public class BillingClient {
 
     private void getBalance(BillingService bs) {
         for (int i = 0; i < CARDS.length; i++) {
-            Card card = createCard (i);
+            Card card = createCard(i);
             try {
                 System.out.println("card : " +
                         card.getNumber() +
@@ -92,12 +98,5 @@ public class BillingClient {
                         e.getMessage());
             }
         }
-    }
-
-    public static void main(String[] args) {
-        System.setProperty("java.security.policy","client.policy");
-
-        new BillingClient();
-        System.exit(0);
     }
 }
