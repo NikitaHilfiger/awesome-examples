@@ -87,7 +87,7 @@ public class BillingServiceImpl extends UnicastRemoteObject implements BillingSe
 
 //            System.setProperty(RMI_HOSTNAME, localhost);
             // Создание удаленного RMI объекта
-            BillingService service = new BillingServiceImpl();  
+            BillingService service = new BillingServiceImpl();
 
             // Определение имени удаленного RMI объекта
             String serviceName = "BillingService";
