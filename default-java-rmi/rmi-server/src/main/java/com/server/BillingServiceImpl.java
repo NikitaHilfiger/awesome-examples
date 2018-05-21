@@ -75,15 +75,19 @@ public class BillingServiceImpl extends UnicastRemoteObject implements BillingSe
      * Старт registry и запуск удаленного RMI объекта BillingService
      */
     public static void main (String[] args) throws Exception {
-        String localhost    = "http://127.0.0.1";
+        String localhost    = "http://127.0.1.1";
         String RMI_HOSTNAME = "java.rmi.server.hostname";
-        String RMI_CODEBASE = "java.rmi.server.codebase";
 
         try {
             System.setProperty(RMI_HOSTNAME, localhost);
-            System.setProperty(RMI_CODEBASE, localhost);
+            System.setProperty("java.security.policy", ".java.policy");
+            if (System.getSecurityManager() == null) {
+                System.setSecurityManager(new SecurityManager());
+            }
+
+//            System.setProperty(RMI_HOSTNAME, localhost);
             // Создание удаленного RMI объекта
-            BillingService service = new BillingServiceImpl();
+            BillingService service = new BillingServiceImpl();  
 
             // Определение имени удаленного RMI объекта
             String serviceName = "BillingService";

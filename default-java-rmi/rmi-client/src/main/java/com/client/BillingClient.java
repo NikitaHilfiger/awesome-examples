@@ -9,10 +9,10 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 public class BillingClient {
+
     //Для регистрации RMI Registry, у который будет отдавать адреса RMI объектов
-    String localhost = "http://127.0.0.1/";
+    String localhost = "http://127.0.1.1/";
     String RMI_HOSTNAME = "java.rmi.server.hostname";
-    String RMI_CODEBASE = "java.rmi.server.codebase";
 
     String SERVICE_PATH = "rmi://localhost/BillingService";
 
@@ -24,8 +24,13 @@ public class BillingClient {
 
     public BillingClient() {
         try {
-            System.setProperty(RMI_HOSTNAME, localhost);
-            System.setProperty(RMI_CODEBASE, localhost);
+            System.setProperty("java.security.policy", ".java.policy");
+
+            if (System.getSecurityManager() == null) {
+                System.setSecurityManager(new SecurityManager());
+            }
+
+//            System.setProperty(RMI_HOSTNAME, localhost);
             // URL удаленного объекта
             String objectName = SERVICE_PATH;
 
@@ -40,19 +45,17 @@ public class BillingClient {
 
             System.out.println("Get balance ...\n");
             getBalance(bs);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (RemoteException e) {
+        } catch (MalformedURLException | RemoteException e) {
             e.printStackTrace();
         } catch (NotBoundException e) {
-            System.err.println("NotBoundException : " +
-                    e.getMessage());
+            System.err.println(
+                    "NotBoundException : " +
+                    e.getMessage()
+            );
         }
     }
 
     public static void main(String[] args) {
-        System.setProperty("java.security.policy", "client.policy");
-
         new BillingClient();
         System.exit(0);
     }
@@ -67,8 +70,10 @@ public class BillingClient {
             try {
                 bs.addNewCard(card);
             } catch (RemoteException e) {
-                System.err.println("RemoteException : " +
-                        e.getMessage());
+                System.err.println(
+                        "RemoteException : " +
+                        e.getMessage()
+                );
             }
         }
     }
@@ -79,8 +84,10 @@ public class BillingClient {
             try {
                 bs.addMoney(card, MONEYS[i]);
             } catch (RemoteException e) {
-                System.err.println("RemoteException : " +
-                        e.getMessage());
+                System.err.println(
+                        "RemoteException : " +
+                        e.getMessage()
+                );
             }
         }
     }
@@ -89,10 +96,12 @@ public class BillingClient {
         for (int i = 0; i < CARDS.length; i++) {
             Card card = createCard(i);
             try {
-                System.out.println("card : " +
+                System.out.println(
+                        "card : " +
                         card.getNumber() +
                         ", balance = " +
-                        bs.getCardBalance(card));
+                        bs.getCardBalance(card)
+                );
             } catch (RemoteException e) {
                 System.err.println("RemoteException : " +
                         e.getMessage());
