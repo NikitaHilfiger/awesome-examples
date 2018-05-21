@@ -13,7 +13,7 @@ public class MainConfig {
         SpringApplication.run(MainConfig.class, args);
 
         System.out.println(
-                "App startup done"
+                "App startup is done"
         );
     }
 
