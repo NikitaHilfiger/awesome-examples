@@ -31,7 +31,7 @@ tomcat {
     ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
 }
 
-
 dependencies {
     compile "org.glassfish:javax.faces:2.2.9"
+    compile "org.primefaces:primefaces:6.2"
 }
