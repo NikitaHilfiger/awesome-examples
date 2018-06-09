@@ -10,18 +10,23 @@
     <title>
         Release Manager
     </title>
+
+    <h:outputStylesheet library="css" name="styles.css"/>
+
 </h:head>
 <h:body>
 
-    <ui:insert name="header">
-        <ui:include src="common/header.xhtml" />
-    </ui:insert>
+    <div id="global-navigation">
+        <ui:insert name="navigation">
+            <ui:include src="navigation.xhtml"/>
+        </ui:insert>
+    </div>
 
-    <ui:insert name="content" />
-
-    <ui:insert name="footer">
-        <ui:include src="common/footer.xhtml"/>
-    </ui:insert>
+    <div id="current-content">
+        <ui:insert name="content">
+            <ui:include src="content.xhtml"/>
+        </ui:insert>
+    </div>
 
 </h:body>
 </html>
