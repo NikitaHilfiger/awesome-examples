@@ -3,6 +3,7 @@ package ru.sbrf.fsb.install.releasemanager.web.view.uicomponents;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 import java.util.ArrayList;
@@ -12,9 +13,10 @@ import java.util.Map;
 
 
 @ManagedBean
+@SessionScoped
 public class SelectOneMenuView {
 
-    private String console;
+    private String configurationElement;
 
     private String car;
     private List<SelectItem> cars;
@@ -63,12 +65,13 @@ public class SelectOneMenuView {
         }
     }
 
-    public String getConsole() {
-        return console;
+    public String getConfigurationElement() {
+        return configurationElement;
     }
 
-    public void setConsole(String console) {
-        this.console = console;
+    public void setConfigurationElement(String configurationElement) {
+        System.out.println("setter called:" + configurationElement);
+        this.configurationElement = configurationElement;
     }
 
     public String getCar() {
@@ -126,4 +129,15 @@ public class SelectOneMenuView {
     public void setOptions(List<String> options) {
         this.options = options;
     }
+
+    public Boolean checkSelected() {
+
+
+        return this.configurationElement != null;
+    }
+
+    public void meth(){
+        System.out.println("1223123123");
+    }
+
 }

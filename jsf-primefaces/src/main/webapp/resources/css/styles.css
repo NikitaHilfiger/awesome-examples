@@ -12,3 +12,8 @@
     border: 5px;
     margin: 10px;
 }
+
+#configuration-element-info {
+    float: left;
+    position: relative;
+}

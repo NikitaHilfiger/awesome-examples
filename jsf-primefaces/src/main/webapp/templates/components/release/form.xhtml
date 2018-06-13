@@ -6,18 +6,33 @@
         xmlns:p="http://primefaces.org/ui"
 >
 <h:form style="margin: 3px">
-    <p:messages>
+    <p:messages closable="true">
         <p:autoUpdate />
     </p:messages>
 
     <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-        <p:outputLabel for="console" value="Basic:" />
-        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
-            <f:selectItem itemLabel="Select One" itemValue="" />
-            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-            <f:selectItem itemLabel="PS4" itemValue="PS4" />
-            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+
+        <p:outputLabel for="configuration-element" value="Выбор КЭ:" />
+        <p:selectOneMenu id="configuration-element"
+
+                         value="#{selectOneMenuView.configurationElement}"
+                         required="true"
+                         style="width:125px"
+        >
+            <f:selectItem itemValue="#{null}" itemLabel="-- select one --" />
+            <f:selectItem itemValue="efs" var="configurationElement" itemLabel="ЕФС" />
+            <p:ajax event="change"
+                    update="configuration-element-info"
+                    listener="#{selectOneMenuView.meth()}" />
         </p:selectOneMenu>
+        <ui:fragment id="configuration-element-info">
+            panel rendered=#{selectOneMenuView.checkSelected()}
+            <p:panel rendered="#{selectOneMenuView.checkSelected()}">
+                <h1>11111</h1>
+            </p:panel>
+        </ui:fragment>
+
+        <p:panel id="textbox" value="#{selectOneMenuView.configurationElement }" />
 
         <p:outputLabel for="car" value="Grouping: " />
         <p:selectOneMenu id="car" value="#{selectOneMenuView.car}">
@@ -50,14 +65,15 @@
             <f:selectItem itemLabel="Select One" itemValue="" />
             <f:selectItems value="#{selectOneMenuView.options}" />
         </p:selectOneMenu>
+
     </h:panelGrid>
 
-    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+    <p:commandButton value="Создать" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
 
     <p:dialog header="Values" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">
         <p:panelGrid columns="2" id="display" columnClasses="label,value">
             <h:outputText value="Basic:" />
-            <h:outputText value="#{selectOneMenuView.console}" />
+            <h:outputText value="#{selectOneMenuView.configurationElement}" />
 
             <h:outputText value="Grouping:" />
             <h:outputText value="#{selectOneMenuView.car}" />
