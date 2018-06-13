@@ -1,4 +1,4 @@
-package ru.sbrf.fsb.install.releasemanager.web.view;
+package ru.sbrf.fsb.install.releasemanager.web.view.uicomponents;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -7,16 +7,12 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 public class ToolbarView {
 
-    public void save() {
-        addMessage("Success", "Data saved");
+    public void reset() {
+        addMessage("Success", "New template");
     }
 
-    public void update() {
-        addMessage("Success", "Data updated");
-    }
-
-    public void delete() {
-        addMessage("Success", "Data deleted");
+    public void openTemplate() {
+        addMessage("Success", "Template opened");
     }
 
     public void addMessage(String summary, String detail) {

@@ -1,12 +1,12 @@
-package ru.sbrf.fsb.install.releasemanager.web.view;
+package ru.sbrf.fsb.install.releasemanager.web.view.uicomponents;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import java.util.ArrayList;
+import java.util.List;
 
-@ManagedBean(name="themeService", eager = true)
+@ManagedBean(name = "themeService", eager = true)
 @ApplicationScoped
 public class ThemeService {
 

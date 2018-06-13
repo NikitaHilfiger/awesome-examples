@@ -1,13 +1,14 @@
-package ru.sbrf.fsb.install.releasemanager.web.view;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package ru.sbrf.fsb.install.releasemanager.web.view.uicomponents;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @ManagedBean
@@ -19,7 +20,7 @@ public class SelectOneMenuView {
     private List<SelectItem> cars;
 
     private String city;
-    private Map<String,String> cities = new HashMap<String, String>();
+    private Map<String, String> cities = new HashMap<String, String>();
 
     private Theme theme;
     private List<Theme> themes;
@@ -34,10 +35,10 @@ public class SelectOneMenuView {
     public void init() {
         //cars
         SelectItemGroup g1 = new SelectItemGroup("German Cars");
-        g1.setSelectItems(new SelectItem[] {new SelectItem("BMW", "BMW"), new SelectItem("Mercedes", "Mercedes"), new SelectItem("Volkswagen", "Volkswagen")});
+        g1.setSelectItems(new SelectItem[]{new SelectItem("BMW", "BMW"), new SelectItem("Mercedes", "Mercedes"), new SelectItem("Volkswagen", "Volkswagen")});
 
         SelectItemGroup g2 = new SelectItemGroup("American Cars");
-        g2.setSelectItems(new SelectItem[] {new SelectItem("Chrysler", "Chrysler"), new SelectItem("GM", "GM"), new SelectItem("Ford", "Ford")});
+        g2.setSelectItems(new SelectItem[]{new SelectItem("Chrysler", "Chrysler"), new SelectItem("GM", "GM"), new SelectItem("Ford", "Ford")});
 
         cars = new ArrayList<SelectItem>();
         cars.add(g1);
@@ -46,18 +47,18 @@ public class SelectOneMenuView {
         //cities
         cities = new HashMap<String, String>();
         cities.put("New York", "New York");
-        cities.put("London","London");
-        cities.put("Paris","Paris");
-        cities.put("Barcelona","Barcelona");
-        cities.put("Istanbul","Istanbul");
-        cities.put("Berlin","Berlin");
+        cities.put("London", "London");
+        cities.put("Paris", "Paris");
+        cities.put("Barcelona", "Barcelona");
+        cities.put("Istanbul", "Istanbul");
+        cities.put("Berlin", "Berlin");
 
         //themes
         themes = service.getThemes();
 
         //options
         options = new ArrayList<String>();
-        for(int i = 0; i < 20; i++) {
+        for (int i = 0; i < 20; i++) {
             options.add("Option " + i);
         }
     }
