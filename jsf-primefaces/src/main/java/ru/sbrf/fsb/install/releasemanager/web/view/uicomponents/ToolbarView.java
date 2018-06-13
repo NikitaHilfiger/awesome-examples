@@ -1,4 +1,4 @@
-package ru.sbrf.fsb.install.releasemanager.web.view;
+package ru.sbrf.fsb.install.releasemanager.web.view.uicomponents;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;

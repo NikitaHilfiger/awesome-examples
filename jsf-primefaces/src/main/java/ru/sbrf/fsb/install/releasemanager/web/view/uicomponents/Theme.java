@@ -1,4 +1,4 @@
-package ru.sbrf.fsb.install.releasemanager.web.view;
+package ru.sbrf.fsb.install.releasemanager.web.view.uicomponents;
 
 public class Theme {
 
@@ -6,7 +6,8 @@ public class Theme {
     private String displayName;
     private String name;
 
-    public Theme() {}
+    public Theme() {
+    }
 
     public Theme(int id, String displayName, String name) {
         this.id = id;
