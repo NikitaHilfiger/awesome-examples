@@ -1,9 +1,9 @@
 package ru.sbrf.fsb.install.releasemanager.web.view.uicomponents;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 
 @ManagedBean
-@SessionScoped
+@ApplicationScoped
 public class SelectOneMenuView {
 
     private String configurationElement;
@@ -71,6 +71,7 @@ public class SelectOneMenuView {
 
     public void setConfigurationElement(String configurationElement) {
         System.out.println("setter called:" + configurationElement);
+        System.out.println(this.toString());
         this.configurationElement = configurationElement;
     }
 
@@ -131,13 +132,14 @@ public class SelectOneMenuView {
     }
 
     public Boolean checkSelected() {
-
-
+        System.out.println("checkSelected = " + configurationElement);
+        System.out.println("is not null" + this.configurationElement != null);
         return this.configurationElement != null;
     }
 
-    public void meth(){
-        System.out.println("1223123123");
+    public void meth() {
+        System.out.println("meth called");
+        System.out.println(this.toString());
     }
 
 }
