@@ -1,4 +1,4 @@
-package ru.sbrf.fsb.install.releasemanager.web.model;
+package ru.sbrf.efs.install.releasemanager.web.model;
 
 import lombok.Data;
 

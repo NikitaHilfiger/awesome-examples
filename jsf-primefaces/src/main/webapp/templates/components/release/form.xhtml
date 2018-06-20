@@ -17,8 +17,7 @@
                 <p:outputLabel for="configuration-element" value="Выбор КЭ:"/>
                 <p:selectOneMenu id="configuration-element"
                                  value="#{selectOneMenuView.configurationElement}"
-                                 style="width:125px"
-                >
+                                 style="width:125px">
                     <f:selectItem itemValue="#{null}" itemLabel="-- Выберите КЭ --"/>
                     <f:selectItem itemValue="efs" var="configurationElement" itemLabel="ЕФС"/>
                     <p:ajax event="change"
@@ -26,20 +25,20 @@
                     />
                 </p:selectOneMenu>
 
-                <p:outputLabel for="car" value="Grouping: "/>
-                <p:selectOneMenu id="car" value="#{selectOneMenuView.car}">
+                <p:outputLabel for="version" value="Grouping: "/>
+                <p:selectOneMenu id="version" value="#{selectOneMenuView.car}">
                     <f:selectItem itemLabel="Select One" itemValue=""/>
                     <f:selectItems value="#{selectOneMenuView.cars}"/>
                 </p:selectOneMenu>
 
-                <p:outputLabel for="city" value="Editable: "/>
-                <p:selectOneMenu id="city" value="#{selectOneMenuView.city}" effect="fold" editable="true">
+                <p:outputLabel for="artifact" value="Editable: "/>
+                <p:selectOneMenu id="artifact" value="#{selectOneMenuView.city}" effect="fold" editable="true">
                     <f:selectItem itemLabel="Select One" itemValue=""/>
                     <f:selectItems value="#{selectOneMenuView.cities}"/>
                 </p:selectOneMenu>
 
-                <p:outputLabel for="advanced" value="Advanced:"/>
-                <p:selectOneMenu id="advanced"
+                <p:outputLabel for="route" value="Advanced:"/>
+                <p:selectOneMenu id="route"
                                  value="#{selectOneMenuView.theme}"
                                  converter="themeConverter"
                                  panelStyle="width:180px"

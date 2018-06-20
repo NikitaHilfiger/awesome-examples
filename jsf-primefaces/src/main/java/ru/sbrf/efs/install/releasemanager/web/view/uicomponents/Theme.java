@@ -1,4 +1,4 @@
-package ru.sbrf.fsb.install.releasemanager.web.view.uicomponents;
+package ru.sbrf.efs.install.releasemanager.web.view.uicomponents;
 
 public class Theme {
 

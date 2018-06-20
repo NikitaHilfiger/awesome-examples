@@ -1,6 +1,6 @@
-package ru.sbrf.fsb.install.releasemanager.web.service;
+package ru.sbrf.efs.install.releasemanager.web.service;
 
-import ru.sbrf.fsb.install.releasemanager.web.model.ConfigurationElement;
+import ru.sbrf.efs.install.releasemanager.web.model.ConfigurationElement;
 
 import javax.faces.bean.ManagedBean;
 
@@ -36,7 +36,5 @@ public class ConfigurationElementService {
     public String getCeParentName() {
         return this.coreCeEfs.getName();
     }
-
-
 
 }
