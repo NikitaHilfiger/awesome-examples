@@ -1,13 +1,13 @@
-package ru.sbrf.efs.install.releasemanager.web.view.uicomponents;
+package ru.sbrf.efs.install.releasemanager.web.view.service;
+
+import org.springframework.stereotype.Component;
+import ru.sbrf.efs.install.releasemanager.web.view.model.Theme;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean(name = "themeService", eager = true)
-@ApplicationScoped
+@Component
 public class ThemeService {
 
     private List<Theme> themes;

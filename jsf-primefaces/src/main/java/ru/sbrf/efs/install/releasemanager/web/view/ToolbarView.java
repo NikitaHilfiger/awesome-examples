@@ -1,10 +1,11 @@
-package ru.sbrf.efs.install.releasemanager.web.view.uicomponents;
+package ru.sbrf.efs.install.releasemanager.web.view;
+
+import org.springframework.stereotype.Component;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Component
 public class ToolbarView {
 
     public void reset() {

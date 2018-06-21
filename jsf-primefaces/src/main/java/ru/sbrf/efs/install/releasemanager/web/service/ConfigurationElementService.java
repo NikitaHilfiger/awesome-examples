@@ -1,40 +1,51 @@
 package ru.sbrf.efs.install.releasemanager.web.service;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ru.sbrf.efs.install.releasemanager.web.model.ConfigurationElement;
+import ru.sbrf.efs.install.releasemanager.web.model.Release;
 
-import javax.faces.bean.ManagedBean;
+import java.util.ArrayList;
+import java.util.List;
 
-@ManagedBean
+@Component
 public class ConfigurationElementService {
 
-    private Boolean isVersionSelected;
+    @Getter
+    @Setter
+    private ConfigurationElement configurationElement;
 
-    private ConfigurationElement coreCeEfs = new ConfigurationElement(
-            "Единая Фронтальная Система",
-            "EFS",
-            "1",
-            null,
-            "global-efs-artifact"
-    );
+    private List<ConfigurationElement> mockConfigurationElements = new ArrayList<ConfigurationElement>() {{
+        add(
+                new ConfigurationElement(
+                        "Единая Фронтальная Система",
+                        "EFS",
+                        "1",
+                        null,
+                        "global-efs-artifact"
+                )
+        );
 
-    private ConfigurationElement ceEfs = new ConfigurationElement(
-            "sberbank-online",
-            "sb-online",
-            "2",
-            coreCeEfs,
-            "sb-online-artifact"
-    );
+        add(
+                new ConfigurationElement(
+                        "sberbank-online",
+                        "sb-online",
+                        "2",
+                        get(0),
+                        "sb-online-artifact"
+                )
+        );
+    }};
 
-    public String getCoreCeName() {
-        return coreCeEfs.getName();
+    public List<ConfigurationElement> getMockConfigElements() {
+        return mockConfigurationElements;
     }
 
-    public String getCeName() {
-        return ceEfs.getName();
-    }
-
-    public String getCeParentName() {
-        return this.coreCeEfs.getName();
-    }
+/*    public void setConfigElement(ConfigurationElement configElement) {
+        this.release.setConfigurationElement(configElement);
+    }*/
 
 }

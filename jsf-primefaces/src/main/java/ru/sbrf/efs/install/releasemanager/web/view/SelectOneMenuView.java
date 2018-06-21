@@ -1,9 +1,11 @@
-package ru.sbrf.efs.install.releasemanager.web.view.uicomponents;
+package ru.sbrf.efs.install.releasemanager.web.view;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import ru.sbrf.efs.install.releasemanager.web.view.model.Theme;
+import ru.sbrf.efs.install.releasemanager.web.view.service.ThemeService;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 import java.util.ArrayList;
@@ -12,8 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@ManagedBean
-@ApplicationScoped
+@Component
 public class SelectOneMenuView {
 
     private String configurationElement;
@@ -30,7 +31,7 @@ public class SelectOneMenuView {
     private String option;
     private List<String> options;
 
-    @ManagedProperty("#{themeService}")
+    @Autowired
     private ThemeService service;
 
     @PostConstruct

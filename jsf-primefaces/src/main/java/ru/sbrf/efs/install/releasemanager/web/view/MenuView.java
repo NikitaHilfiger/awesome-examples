@@ -1,16 +1,16 @@
-package ru.sbrf.efs.install.releasemanager.web.view.uicomponents;
+package ru.sbrf.efs.install.releasemanager.web.view;
 
 import org.primefaces.model.menu.DefaultMenuItem;
 import org.primefaces.model.menu.DefaultMenuModel;
 import org.primefaces.model.menu.DefaultSubMenu;
 import org.primefaces.model.menu.MenuModel;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Component
 public class MenuView {
 
     private MenuModel model;
