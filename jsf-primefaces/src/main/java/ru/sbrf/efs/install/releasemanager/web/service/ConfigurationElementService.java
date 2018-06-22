@@ -1,12 +1,9 @@
 package ru.sbrf.efs.install.releasemanager.web.service;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.sbrf.efs.install.releasemanager.web.model.ConfigurationElement;
-import ru.sbrf.efs.install.releasemanager.web.model.Release;
 
 import java.util.ArrayList;
 import java.util.List;

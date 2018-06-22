@@ -1,21 +1,30 @@
-apply plugin: 'idea'
-apply plugin: 'java'
-apply plugin: 'war'
-apply plugin: 'com.bmuschko.tomcat'
-
 buildscript {
-
+    ext {
+        springBootVersion = '2.0.2.RELEASE'
+    }
     repositories {
+        mavenCentral()
         jcenter()
     }
-
     dependencies {
+//        classpath 'org.akhikhl.gretty:gretty:+'
         classpath 'com.bmuschko:gradle-tomcat-plugin:2.4.2'
     }
 }
 
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'com.bmuschko.tomcat'
+//apply plugin: 'org.akhikhl.gretty'
+
+group = 'ru.nep'
+version = '0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -31,11 +40,18 @@ tomcat {
     ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
 }
 
+/*
+gretty {
+//    port = 8080
+    contextPath = '/jsf-primefaces'
+    servletContainer = 'jetty8'
+}
+*/
+
 dependencies {
     compile "org.glassfish:javax.faces:2.2.9"
     compile "org.primefaces:primefaces:6.2"
     compile 'org.projectlombok:lombok:1.16.22'
     compile 'org.springframework:spring-core:4.3.18.RELEASE'
     compile group: 'org.springframework', name: 'spring-web', version: '4.3.18.RELEASE'
-
 }
