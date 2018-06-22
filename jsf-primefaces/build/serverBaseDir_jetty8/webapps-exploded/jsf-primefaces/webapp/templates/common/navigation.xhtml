@@ -1,0 +1,19 @@
+<ui:composition
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+>
+
+    <h:form class="navigation-menu">
+        <p:growl id="messages" showDetail="false"/>
+
+        <!--<h3 style="margin-top:0">Plain Menu</h3>-->
+        <p:menu>
+            <p:submenu label="Релизы">
+                <p:menuitem value="Создание" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk" />
+                <p:menuitem value="Просмотр" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+            </p:submenu>
+        </p:menu>
+    </h:form>
+
+</ui:composition>

@@ -1,7 +1,6 @@
 package ru.sbrf.efs.install.releasemanager.web.service;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Component;
 import ru.sbrf.efs.install.releasemanager.web.model.ConfigurationElement;
 
@@ -12,15 +11,12 @@ import java.util.List;
 public class ConfigurationElementService {
 
     @Getter
-    @Setter
-    private ConfigurationElement configurationElement;
-
     private List<ConfigurationElement> mockConfigurationElements = new ArrayList<ConfigurationElement>() {{
         add(
                 new ConfigurationElement(
+                        "0",
                         "Единая Фронтальная Система",
                         "EFS",
-                        "1",
                         null,
                         "global-efs-artifact"
                 )
@@ -28,21 +24,12 @@ public class ConfigurationElementService {
 
         add(
                 new ConfigurationElement(
-                        "sberbank-online",
-                        "sb-online",
-                        "2",
+                        "1",
+                        "sberbank",
+                        "sb",
                         get(0),
                         "sb-online-artifact"
                 )
         );
     }};
-
-    public List<ConfigurationElement> getMockConfigElements() {
-        return mockConfigurationElements;
-    }
-
-/*    public void setConfigElement(ConfigurationElement configElement) {
-        this.release.setConfigurationElement(configElement);
-    }*/
-
 }

@@ -1,5 +1,7 @@
 package ru.sbrf.efs.install.releasemanager.web.view.converters;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ru.sbrf.efs.install.releasemanager.web.view.model.Theme;
 import ru.sbrf.efs.install.releasemanager.web.view.service.ThemeService;
 
@@ -8,17 +10,21 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
-import javax.faces.convert.FacesConverter;
 
-@FacesConverter("themeConverter")
+@Component
 public class ThemeConverter implements Converter {
 
+    @Autowired
+    private ThemeService themeService;
+
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-        System.out.println(value);
+        System.out.println("convert string value = [ " + value + " ] to object");
         if (value != null && value.trim().length() > 0) {
             try {
-                ThemeService service = (ThemeService) fc.getExternalContext().getApplicationMap().get("themeService");
-                return service.getThemes().get(Integer.parseInt(value));
+//                ThemeService service = (ThemeService) fc.getExternalContext().getApplicationMap().get("themeService");
+//                return service.getThemes().get(Integer.parseInt(value));
+                return themeService.getThemes().get(Integer.parseInt(value));
+
             } catch (NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
@@ -28,6 +34,7 @@ public class ThemeConverter implements Converter {
     }
 
     public String getAsString(FacesContext fc, UIComponent uic, Object object) {
+        System.out.println("convert object value [ " + object + " ] to string");
         if (object != null) {
             return String.valueOf(((Theme) object).getId());
         } else {
