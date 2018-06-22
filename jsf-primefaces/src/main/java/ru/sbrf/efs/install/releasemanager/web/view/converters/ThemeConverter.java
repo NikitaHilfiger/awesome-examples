@@ -21,8 +21,6 @@ public class ThemeConverter implements Converter {
         System.out.println("convert string value = [ " + value + " ] to object");
         if (value != null && value.trim().length() > 0) {
             try {
-//                ThemeService service = (ThemeService) fc.getExternalContext().getApplicationMap().get("themeService");
-//                return service.getThemes().get(Integer.parseInt(value));
                 return themeService.getThemes().get(Integer.parseInt(value));
 
             } catch (NumberFormatException e) {
@@ -34,7 +32,7 @@ public class ThemeConverter implements Converter {
     }
 
     public String getAsString(FacesContext fc, UIComponent uic, Object object) {
-        System.out.println("convert object value [ " + object + " ] to string");
+        System.out.println("theme convert object value [ " + object + " ] to string");
         if (object != null) {
             return String.valueOf(((Theme) object).getId());
         } else {

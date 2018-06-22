@@ -1,5 +1,7 @@
 package ru.sbrf.efs.install.releasemanager.web.view.model;
 
+import lombok.Data;
+
 public class Theme {
 
     private int id;

@@ -29,9 +29,13 @@
                 >
                     <f:selectItems value="#{configurationElementService.mockConfigurationElements}"
                                    var="configurationElement"
-                                   itemValue="#{configurationElement.id}"
+                                   itemValue="#{configurationElement}"
                                    itemLabel="#{configurationElement.name}"
                     />
+
+                    <p:column>
+                        <h:outputText value="#{c.name}"/>
+                    </p:column>
 
                     <p:ajax event="change"
                             update="configuration-element-info"
@@ -65,12 +69,9 @@
                 >
                     <f:selectItems value="#{selectOneMenuView.themes}"
                                    var="theme"
+                                   itemValue="#{theme}"
                                    itemLabel="#{theme.displayName}"
-                                   itemValue="#{theme}"/>
-
-                    <p:column style="width:10%">
-                        <h:outputText styleClass="ui-theme ui-theme-#{t.name}"/>
-                    </p:column>
+                    />
 
                     <p:column>
                         <h:outputText value="#{t.displayName}"/>

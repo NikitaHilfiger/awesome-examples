@@ -1,18 +1,20 @@
 package ru.sbrf.efs.install.releasemanager.web.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class ConfigurationElement {
 
-    private final String id;
+    private String id;
 
-    private final String fullName;
+    private String fullName;
 
-    private final String name;
+    private String name;
 
-    private final ConfigurationElement parent;
+    private ConfigurationElement parent;
 
-    private final String artifactId;
+    private String artifactId;
 
 }

@@ -18,7 +18,7 @@ public class ConfigurationElementConverter implements Converter {
     private ConfigurationElementService configurationElementService;
 
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-        System.out.println("convert string value = [ " + value + " ] to object");
+        System.out.println("configuration convert string value = [ " + value + " ] to object");
         if (value != null && value.trim().length() > 0) {
             try {
                 return configurationElementService.getMockConfigurationElements().get(Integer.parseInt(value));
