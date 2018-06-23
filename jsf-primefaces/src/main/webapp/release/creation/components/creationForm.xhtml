@@ -84,28 +84,31 @@
                                     <f:selectItems value="#{selectOneMenuView.options}"/>
                                 </p:selectOneMenu>-->
             </h:panelGrid>
-
-            <p:commandButton value="Создать" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check"/>
-
-            <p:dialog header="Values" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">
-                <p:panelGrid columns="2" id="display" columnClasses="label,value">
-                    <h:outputText value="Basic:"/>
-                    <h:outputText value="#{selectOneMenuView.configurationElement}"/>
-
-                    <h:outputText value="Grouping:"/>
-                    <h:outputText value="#{selectOneMenuView.car}"/>
-
-                    <h:outputText value="Editable"/>
-                    <h:outputText value="#{selectOneMenuView.city}"/>
-
-                    <h:outputText value="Advanced:"/>
-                    <h:outputText value="#{selectOneMenuView.theme.displayName}"/>
-
-                    <h:outputText value="Lazy:"/>
-                    <h:outputText value="#{selectOneMenuView.option}"/>
-                </p:panelGrid>
-            </p:dialog>
+            <h:commandButton label="Создать" action=""/>
         </div>
+
+        <!--
+        <p:commandButton value="Создать" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check"/>
+                    <p:dialog header="Values" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">
+                        <p:panelGrid columns="2" id="display" columnClasses="label,value">
+                            <h:outputText value="Basic:"/>
+                            <h:outputText value="#{selectOneMenuView.configurationElement}"/>
+
+                            <h:outputText value="Grouping:"/>
+                            <h:outputText value="#{selectOneMenuView.car}"/>
+
+                            <h:outputText value="Editable"/>
+                            <h:outputText value="#{selectOneMenuView.city}"/>
+
+                            <h:outputText value="Advanced:"/>
+                            <h:outputText value="#{selectOneMenuView.theme.displayName}"/>
+
+                            <h:outputText value="Lazy:"/>
+                            <h:outputText value="#{selectOneMenuView.option}"/>
+                        </p:panelGrid>
+                    </p:dialog>
+
+                -->
 
         <div style="display: inline-block; vertical-align: top; margin-left: 25px">
             <p:outputPanel id="configuration-element-info" style="width: 550px">
@@ -134,6 +137,7 @@
                 </p:panel>
             </p:outputPanel>
         </div>
+
     </h:form>
 
 </ui:component>

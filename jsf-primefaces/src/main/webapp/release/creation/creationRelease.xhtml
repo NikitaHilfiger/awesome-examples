@@ -1,0 +1,17 @@
+<ui:composition template="../../templates/common/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+    <ui:define name="content">
+
+        <ui:insert name="creation-toolbox">
+            <ui:include src="/release/creation/components/creationToolbar.xhtml"/>
+        </ui:insert>
+
+        <ui:insert name="creation-form">
+            <ui:include src="/release/creation/components/creationForm.xhtml"/>
+        </ui:insert>
+
+    </ui:define>
+
+</ui:composition>

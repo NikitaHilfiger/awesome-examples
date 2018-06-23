@@ -1,0 +1,10 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/common/template.xhtml"
+>
+    <ui:define name="content">
+        <ui:insert name="current-release">
+            <ui:include src="/release/current/currentRelease.xhtml"/>
+        </ui:insert>
+    </ui:define>
+
+</ui:composition>
