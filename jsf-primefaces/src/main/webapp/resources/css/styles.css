@@ -1,4 +1,5 @@
 #global-navigation {
+    float: left;
     padding: 10px;
     border: 5px;
     margin: 10px;
@@ -6,7 +7,7 @@
 
 #current-content {
     float: left;
-    width: 1300px;
+    width: 1000px;
     padding: 10px;
     border: 5px;
     margin: 10px;
