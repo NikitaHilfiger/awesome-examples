@@ -2,8 +2,10 @@ package ru.sbrf.efs.install.releasemanager.web.service;
 
 import lombok.Getter;
 import org.springframework.stereotype.Component;
+import ru.sbrf.efs.install.releasemanager.web.model.Artifact;
 import ru.sbrf.efs.install.releasemanager.web.model.ConfigurationElement;
 import ru.sbrf.efs.install.releasemanager.web.model.Release;
+import ru.sbrf.efs.install.releasemanager.web.model.Route;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,9 @@ public class ReleaseService {
                         .date("2018.06.20-13:30")
                         .status("PROCEED")
                         .configurationElement(sbConfEl)
+                        .artifact(new Artifact("efs-admin-ear.ear"))
+                        .route(new Route("DEV -> TEST -> PROD"))
+                        .status("SUCCESS")
                         .build()
         );
 
