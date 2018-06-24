@@ -17,16 +17,19 @@
 </h:head>
 <h:body>
 
-    <div id="global-navigation">
-        <ui:insert name="navigation">
-            <ui:include src="navigation.xhtml"/>
-        </ui:insert>
-    </div>
+    <div style="white-space: nowrap; vertical-align: top;">
+        <div id="global-navigation" style
+                ="display: inline-block;">
+            <ui:insert name="navigation">
+                <ui:include src="navigation.xhtml"/>
+            </ui:insert>
+        </div>
 
-    <div id="current-content">
-        <ui:insert name="content">
-            <ui:include src="content.xhtml"/>
-        </ui:insert>
+        <div id="current-content" style="display: inline-block; vertical-align: top;">
+            <ui:insert name="content">
+                <ui:include src="content.xhtml"/>
+            </ui:insert>
+        </div>
     </div>
 
 </h:body>

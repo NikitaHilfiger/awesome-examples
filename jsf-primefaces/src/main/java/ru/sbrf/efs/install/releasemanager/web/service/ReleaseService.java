@@ -8,6 +8,7 @@ import ru.sbrf.efs.install.releasemanager.web.model.Release;
 import ru.sbrf.efs.install.releasemanager.web.model.Route;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,7 @@ public class ReleaseService {
                 Release.builder()
                         .id("LLMH98")
                         .name("payment-fp")
+                        .version("0.1")
                         .author("Vasiliy Vasin")
                         .date("2018.06.20-13:30")
                         .status("PROCEED")

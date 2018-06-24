@@ -5,70 +5,40 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <div style="display: inline-block; vertical-align: top; margin-left: 25px">
-        <p:outputPanel id="configuration-element-info" style="width: 550px">
-            <p:panel>
 
-                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                    <f:facet name="header">
-                        <h:outputText value="Релиз"/>
-                    </f:facet>
+        <p:outputPanel id="configuration-element-info">
+            <p:panel >
+                <p:panelGrid columns="2" style="width: 1000px">
+                    <f:facet name="header">Релиз</f:facet>
 
-                    <p:outputLabel for="release-name" value="Наименование"/>
-                    <h:outputText id="release-name"
-                                  value="#{releaseService.mockReleases.get(0).name}"
-                                  style="width:125px"
-                    >
-                    </h:outputText>
+                    <h:outputText value="Наименование релиза: "/>
+                    <h:outputText value="#{releaseService.mockReleases.get(0).name}"/>
 
-                    <p:outputLabel for="release-date" value="Дата"/>
-                    <h:outputText id="release-date"
-                                  value="#{releaseService.mockReleases.get(0).date}"
-                                  style="width:125px"
-                    >
-                    </h:outputText>
+                    <h:outputText value="Дата: "/>
+                    <h:outputText value="#{releaseService.mockReleases.get(0).date}"/>
 
-                    <p:outputLabel for="release-status" value="Статус"/>
-                    <h:outputText id="release-status"
-                                  value="#{releaseService.mockReleases.get(0).status}"
-                    >
-                    </h:outputText>
+                    <h:outputText value="Статус: "/>
+                    <h:outputText value="#{releaseService.mockReleases.get(0).status}"/>
 
-                    <p:outputLabel for="release-author" value="Автор"/>
-                    <h:outputText id="release-author"
-                                  value="#{releaseService.mockReleases.get(0).author}"
-                    >
-                    </h:outputText>
+                    <h:outputText value="Автор: "/>
+                    <h:outputText value="#{releaseService.mockReleases.get(0).author}"/>
 
-                    <p:outputLabel for="release-configuration-element" value="Конфигурацтонный элемент"/>
-                    <h:outputText id="release-configuration-element"
-                                  value="#{releaseService.mockReleases.get(0).configurationElement.name}"
-                    >
-                    </h:outputText>
+                    <h:outputText value="Конфигурационный элемент: "/>
+                    <h:outputText value="#{releaseService.mockReleases.get(0).configurationElement.name}"/>
 
-                    <p:outputLabel for="release-artifact" value="Артефакт"/>
-                    <h:outputText id="release-artifact"
-                                  value="#{releaseService.mockReleases.get(0).artifact}"
-                    >
-                    </h:outputText>
+                    <h:outputText value="Артефакт: "/>
+                    <h:outputText value="#{releaseService.mockReleases.get(0).artifact}"/>
 
-                    <p:outputLabel for="release-version" value="Версия"/>
-                    <h:outputText id="release-version"
-                                  value="#{releaseService.mockReleases.get(0).version}"
-                    >
-                    </h:outputText>
+                    <h:outputText value="Версия: "/>
+                    <h:outputText value="#{releaseService.mockReleases.get(0).version}"/>
 
-                    <p:outputLabel for="release-route" value="Маршрут"/>
-                    <h:outputText id="release-route"
-                                  value="#{releaseService.mockReleases.get(0).route}"
-                    >
-                    </h:outputText>
+                    <h:outputText value="Маршрут: "/>
+                    <h:outputText value="#{releaseService.mockReleases.get(0).route}"/>
 
-
-
-                </h:panelGrid>
-
+                </p:panelGrid>
             </p:panel>
         </p:outputPanel>
+
     </div>
 
 </ui:composition>
