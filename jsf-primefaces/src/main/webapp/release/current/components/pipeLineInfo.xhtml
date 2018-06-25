@@ -1,0 +1,77 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+
+    <p:panel id="pipeline-info-panel" style="margin: 20px; width: 70%">
+
+        <h:form id="pipeline-info-content-mode-selection">
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                <h:outputText value="Platform:"/>
+                <p:selectOneButton value="#{selectOneView.option}">
+                    <f:selectItem itemLabel="Xbox One" itemValue="Xbox One"/>
+                    <f:selectItem itemLabel="PS4" itemValue="PS4"/>
+                    <f:selectItem itemLabel="Wii U" itemValue="Wii U"/>
+                </p:selectOneButton>
+
+                <p:commandButton value="Submit" update="display" icon="ui-icon-check"/>
+                <p:spacer/>
+
+                <h:outputText value="Selected:"/>
+                <h:outputText id="display" value="#{selectOneView.option}" style="font-weight: bold"/>
+            </h:panelGrid>
+        </h:form>
+
+        <p:outputPanel id="pipeline-info-content" style="width: 550px; white-space: nowrap">
+
+            <!--<p:panel rendered="#{release.configurationElement != null}">-->
+
+                <p:panel>
+
+                    <p:dataTable var="car" value="#{pipeLineService.mockPipeLines}">
+
+                        <f:facet name="header">DEV</f:facet>
+
+                        <p:column headerText="Orde">
+                            <h:outputText value="#{car.}" />
+                        </p:column>
+
+                        <p:column headerText="Year">
+                            <h:outputText value="#{car.year}" />
+                        </p:column>
+
+                    </p:dataTable>
+
+                </p:panel>
+
+                <p:panel>
+
+                    <p:dataTable var="car" value="#{dtBasicView.cars}">
+                        <p:column headerText="Id">
+                            <h:outputText value="#{car.id}" />
+                        </p:column>
+
+                        <p:column headerText="Year">
+                            <h:outputText value="#{car.year}" />
+                        </p:column>
+
+                        <p:column headerText="Brand">
+                            <h:outputText value="#{car.brand}" />
+                        </p:column>
+
+                        <p:column headerText="Color">
+                            <h:outputText value="#{car.color}" />
+                        </p:column>
+                    </p:dataTable>
+
+                </p:panel>
+
+            <!--</p:panel>-->
+        </p:outputPanel>
+
+    </p:panel>
+
+
+</ui:composition>

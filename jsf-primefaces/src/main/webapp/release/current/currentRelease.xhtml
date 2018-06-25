@@ -2,9 +2,15 @@
                 template="/templates/common/template.xhtml"
 >
     <ui:define name="content">
-        <ui:insert name="current-release">
-            <ui:include src="components/releaseInfo.xhtml"/>
+
+        <ui:insert name="meta-info">
+            <ui:include src="components/metaInfo.xhtml"/>
         </ui:insert>
+
+        <ui:insert name="pipeline-info">
+            <ui:include src="components/pipeLineInfo.xhtml"/>
+        </ui:insert>
+
     </ui:define>
 
 </ui:composition>
