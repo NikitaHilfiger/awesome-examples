@@ -19,9 +19,33 @@ public class PipeLineService {
                         .builder()
                         .id("1")
                         .jobs(
-                                new ArrayDataModel<Job>() {{
-                                    adnew Job()
-                                }}
+                                new ArrayDataModel<>(
+                                        new Job[] {
+                                            new Job("nginx"),
+                                            new Job("WAS"),
+                                            new Job("settings-install"),
+                                            new Job("oracle-install"),
+                                            new Job("migration-configuration")
+                                        }
+                                )
+                        )
+                        .build()
+        );
+
+        add(
+                PipeLine
+                        .builder()
+                        .id("1")
+                        .jobs(
+                                new ArrayDataModel<>(
+                                        new Job[] {
+                                                new Job("nginx"),
+                                                new Job("WAS"),
+                                                new Job("settings-install"),
+                                                new Job("postgre"),
+                                                new Job("migration-configuration")
+                                        }
+                                )
                         )
                         .build()
         );
