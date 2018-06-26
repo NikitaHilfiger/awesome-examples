@@ -5,13 +5,11 @@
 >
 
     <h:form class="navigation-menu">
-        <p:growl id="messages" showDetail="false"/>
-
         <!--<h3 style="margin-top:0">Plain Menu</h3>-->
         <p:menu>
             <p:submenu label="Релизы">
-                <p:menuitem value="Создание" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk" />
-                <p:menuitem value="Просмотр" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                <p:menuitem value="Создание" actionListener="#{menuView.save}" icon="ui-icon-disk" action="/app/release/creation/creationRelease"/>
+                <p:menuitem value="Просмотр" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w" action="/app/release/set/setReleases"/>
             </p:submenu>
         </p:menu>
     </h:form>

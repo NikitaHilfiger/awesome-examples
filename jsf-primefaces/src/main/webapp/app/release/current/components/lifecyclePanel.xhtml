@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+>
+    <p:panel id="lifecycle-info-panel" style="margin: 20px; width: 75%">
+        <h:form id="lifecycle-info-content-mode-selection">
+
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                <p:selectOneButton value="#{selectOneContentView.content}">
+                    <f:selectItem itemLabel="Обсуждение" itemValue="Discussion"/>
+                    <f:selectItem itemLabel="История" itemValue="History"/>
+                    <p:ajax event="change"
+                            update="lifecycle-current-content"
+                    />
+                </p:selectOneButton>
+            </h:panelGrid>
+
+            <p:fragment id="lifecycle-current-content">
+
+                <p:panel header="Basic"
+                         footer="Movie Details"
+                         style="margin-bottom:20px"
+                         id="current-discussion"
+                         name="discussion"
+                         rendered="#{selectOneContentView.content.equals('Discussion')}"
+                >
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage library="images" name="default-profile.png"/>
+                        <h:outputText
+                                value="The story begins as Don Vito Corleone..."/>
+                    </h:panelGrid>
+                </p:panel>
+
+                <p:panel id="current-history"
+                         name="history"
+                         rendered="#{selectOneContentView.content.equals('History')}"
+                >
+                    <p:dataTable var="h" value="#{historyService.mockHistoryComponents}">
+                        <p:column headerText="Date">
+                            <h:outputText value="#{h.date}"/>
+                        </p:column>
+
+                        <p:column headerText="Message">
+                            <h:outputText value="#{h.message}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+
+            </p:fragment>
+
+        </h:form>
+    </p:panel>
+</ui:composition>

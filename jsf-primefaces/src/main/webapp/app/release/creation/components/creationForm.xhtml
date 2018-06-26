@@ -7,10 +7,6 @@
 >
     <h:form style="margin: 3px">
 
-        <p:messages closable="true">
-            <p:autoUpdate/>
-        </p:messages>
-
         <div style="display: inline-block">
 
             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
@@ -79,7 +75,8 @@
                 </p:selectOneMenu>
 
             </h:panelGrid>
-            <!--<h:commandButton label="Создать" action=""/>-->
+
+            <h:commandButton value="Создать" action="/app/release/current/currentRelease"/>
         </div>
 
         <div style="display: inline-block; vertical-align: top; margin-left: 25px">
