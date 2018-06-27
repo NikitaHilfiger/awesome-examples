@@ -4,7 +4,6 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:p="http://primefaces.org/ui">
 
-
     <p:panel id="pipeline-info-panel" style="white-space: nowrap; margin: 20px; width: 1120px">
 
         <h:form id="pipeline-info-content-mode-selection">
@@ -23,58 +22,32 @@
 
         </h:form>
 
-        <p:outputPanel id="pipeline-info-content" style="width: 550px">
+        <p:outputPanel id="pipeline-info-content">
 
             <ui:fragment id="route-info" rendered="#{selectOneView.option != null}">
 
-                <p:panel style="margin: 5px; width: 1077px">Route: 1 step &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;
-                     &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; -> &#160; 2 step</p:panel>
-                <p:panel id="first-ccontour" style="display: inline-block; margin: 5px">
+                <p:dataGrid value="#{pipeLineService.mockPipeLines}" var="p" columns="5"
+                            style="width: auto">
+                        <p:dataTable var="j" value="#{p.jobs}">
+                            <f:facet name="header">#{pipeLineService.mockPipeLines.rowIndex + 1} . #{p.name}</f:facet>
+                            <p:column headerText="N" style="width: 13%">
+                                <h:outputText value="#{p.jobs.rowIndex + 1}"/>
+                            </p:column>
 
-                    <p:dataTable var="j"
-                                 value="#{pipeLineService.mockPipeLines.get(0).jobs}"
-                    >
+                            <p:column headerText="Step">
+                                <h:outputText value="#{j.name}"/>
+                            </p:column>
 
-                        <f:facet name="header">DEV</f:facet>
-
-                        <p:column headerText="Order" style="width: 12%">
-                            <h:outputText value="#{pipeLineService.mockPipeLines.get(0).jobs.rowIndex + 1}" />
-                        </p:column>
-
-                        <p:column headerText="Name">
-                            <h:outputText value="#{j.name}" />
-                        </p:column>
-
-                    </p:dataTable>
-
-                </p:panel>
-
-            <p:panel id="second-ccontour" style="display: inline-block; margin: 5px">
-
-                <p:dataTable var="j"
-                             value="#{pipeLineService.mockPipeLines.get(1).jobs}"
-                >
-
-                    <f:facet name="header">TEST</f:facet>
-
-                    <p:column headerText="Order" style="width: 12%">
-                        <h:outputText value="#{pipeLineService.mockPipeLines.get(1).jobs.rowIndex + 1}" />
-                    </p:column>
-
-                    <p:column headerText="Name">
-                        <h:outputText value="#{j.name}" />
-                    </p:column>
-
-                </p:dataTable>
-
-            </p:panel>
+                            <p:column headerText="St" width="17%">
+                                <p:graphicImage styleClass="ui-icon #{iconView.getJobIcon(j)}"/>
+                            </p:column>
+                        </p:dataTable>
+                </p:dataGrid>
 
             </ui:fragment>
 
-            <!--</p:panel>-->
         </p:outputPanel>
 
     </p:panel>
-
 
 </ui:composition>

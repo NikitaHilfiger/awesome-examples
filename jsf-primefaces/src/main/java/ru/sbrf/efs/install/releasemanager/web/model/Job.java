@@ -8,4 +8,11 @@ import lombok.Getter;
 public class Job {
 
     private String name;
+
+    private Status status;
+
+    public enum Status {
+        SUCCESS,
+        FAIL
+    }
 }
