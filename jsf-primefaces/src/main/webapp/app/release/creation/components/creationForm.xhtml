@@ -5,108 +5,109 @@
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         xmlns:p="http://primefaces.org/ui"
 >
-    <h:form style="margin: 3px">
+    <p:panel style="margin: 5px">
+        <h:form style="margin: 3px">
+            <div style="display: inline-block">
 
-        <div style="display: inline-block">
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
-            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="configuration-element" value="Выбор КЭ:"/>
+                    <p:selectOneMenu id="configuration-element"
+                                     value="#{release.configurationElement}"
+                                     converter="#{configurationElementConverter}"
+                                     panelStyle="width:180px"
+                                     effect="fade"
+                                     var="c"
+                                     style="width:160px"
+                                     filter="true"
+                                     filterMatchMode="startsWith"
+                                     required="true"
+                    >
+                        <f:selectItems value="#{configurationElementService.mockConfigurationElements}"
+                                       var="configurationElement"
+                                       itemValue="#{configurationElement}"
+                                       itemLabel="#{configurationElement.name}"
+                        />
 
-                <p:outputLabel for="configuration-element" value="Выбор КЭ:"/>
-                <p:selectOneMenu id="configuration-element"
-                                 value="#{release.configurationElement}"
-                                 converter="#{configurationElementConverter}"
-                                 panelStyle="width:180px"
-                                 effect="fade"
-                                 var="c"
-                                 style="width:160px"
-                                 filter="true"
-                                 filterMatchMode="startsWith"
-                                 required="true"
-                >
-                    <f:selectItems value="#{configurationElementService.mockConfigurationElements}"
-                                   var="configurationElement"
-                                   itemValue="#{configurationElement}"
-                                   itemLabel="#{configurationElement.name}"
-                    />
+                        <p:column>
+                            <h:outputText value="#{c.name}"/>
+                        </p:column>
 
-                    <p:column>
-                        <h:outputText value="#{c.name}"/>
-                    </p:column>
+                        <p:ajax event="change"
+                                update="configuration-element-info"
+                        />
+                    </p:selectOneMenu>
 
-                    <p:ajax event="change"
-                            update="configuration-element-info"
-                    />
-                </p:selectOneMenu>
+                    <p:outputLabel for="artifact" value="Артефакт: "/>
+                    <p:selectOneMenu id="artifact"
+                                     value="#{selectOneMenuView.city}"
+                                     effect="fold"
+                                     editable="true"
+                                     required="true">
+                        <f:selectItem itemLabel="Select One" itemValue=""/>
+                        <f:selectItems value="#{selectOneMenuView.cities}"/>
+                    </p:selectOneMenu>
 
-                <p:outputLabel for="artifact" value="Артефакт: "/>
-                <p:selectOneMenu id="artifact"
-                                 value="#{selectOneMenuView.city}"
-                                 effect="fold"
-                                 editable="true"
-                                 required="true">
-                    <f:selectItem itemLabel="Select One" itemValue=""/>
-                    <f:selectItems value="#{selectOneMenuView.cities}"/>
-                </p:selectOneMenu>
+                    <p:outputLabel for="version" value="Версия: "/>
+                    <p:inputText id="version" required="true"/>
 
-                <p:outputLabel for="version" value="Версия: "/>
-                <p:inputText id="version" required="true"/>
+                    <p:outputLabel for="route" value="Маршрут:"/>
+                    <p:selectOneMenu id="route"
+                                     value="#{selectOneMenuView.theme}"
+                                     converter="#{themeConverter}"
+                                     panelStyle="width:180px"
+                                     effect="fade"
+                                     var="t"
+                                     style="width:160px"
+                                     filter="true"
+                                     filterMatchMode="startsWith"
+                                     required="true"
+                    >
+                        <f:selectItems value="#{selectOneMenuView.themes}"
+                                       var="theme"
+                                       itemValue="#{theme}"
+                                       itemLabel="#{theme.displayName}"
+                        />
 
-                <p:outputLabel for="route" value="Маршрут:"/>
-                <p:selectOneMenu id="route"
-                                 value="#{selectOneMenuView.theme}"
-                                 converter="#{themeConverter}"
-                                 panelStyle="width:180px"
-                                 effect="fade"
-                                 var="t"
-                                 style="width:160px"
-                                 filter="true"
-                                 filterMatchMode="startsWith"
-                                 required="true"
-                >
-                    <f:selectItems value="#{selectOneMenuView.themes}"
-                                   var="theme"
-                                   itemValue="#{theme}"
-                                   itemLabel="#{theme.displayName}"
-                    />
+                        <p:column>
+                            <h:outputText value="#{t.displayName}"/>
+                        </p:column>
+                    </p:selectOneMenu>
 
-                    <p:column>
-                        <h:outputText value="#{t.displayName}"/>
-                    </p:column>
-                </p:selectOneMenu>
+                </h:panelGrid>
 
-            </h:panelGrid>
+                <h:commandButton value="Создать" action="/app/release/current/currentRelease" icon="ui-icon ui-icon-star"/>
+            </div>
 
-            <h:commandButton value="Создать" action="/app/release/current/currentRelease"/>
-        </div>
+            <div style="display: inline-block; vertical-align: top; margin-left: 25px">
+                <p:outputPanel id="configuration-element-info" style="width: 550px">
+                    <p:panel rendered="#{release.configurationElement != null}">
 
-        <div style="display: inline-block; vertical-align: top; margin-left: 25px">
-            <p:outputPanel id="configuration-element-info" style="width: 550px">
-                <p:panel rendered="#{release.configurationElement != null}">
+                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                            <f:facet name="header">
+                                <h:outputText value="Описание КЭ"/>
+                            </f:facet>
 
-                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                        <f:facet name="header">
-                            <h:outputText value="Описание КЭ"/>
-                        </f:facet>
+                            <p:outputLabel for="ce-full-name" value="Полное наименование"/>
+                            <h:outputText id="ce-full-name"
+                                          value="#{configurationElementService.getMockConfigurationElements().get(1).getFullName()}"
+                                          style="width:125px"
+                            >
+                            </h:outputText>
 
-                        <p:outputLabel for="ce-full-name" value="Полное наименование"/>
-                        <h:outputText id="ce-full-name"
-                                      value="#{configurationElementService.getMockConfigurationElements().get(1).getFullName()}"
-                                      style="width:125px"
-                        >
-                        </h:outputText>
+                            <p:outputLabel for="parent-ce" value="Родительское КЭ"/>
+                            <h:outputText id="parent-ce"
+                                          value="#{configurationElementService.getMockConfigurationElements().get(0).getFullName()}"
+                            >
+                            </h:outputText>
 
-                        <p:outputLabel for="parent-ce" value="Родительское КЭ"/>
-                        <h:outputText id="parent-ce"
-                                      value="#{configurationElementService.getMockConfigurationElements().get(0).getFullName()}"
-                        >
-                        </h:outputText>
+                        </h:panelGrid>
 
-                    </h:panelGrid>
+                    </p:panel>
+                </p:outputPanel>
 
-                </p:panel>
-            </p:outputPanel>
-        </div>
-
-    </h:form>
+            </div>
+        </h:form>
+    </p:panel>
 
 </ui:component>
