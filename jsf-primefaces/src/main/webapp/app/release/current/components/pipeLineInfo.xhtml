@@ -86,7 +86,7 @@
             </p:panel>
 
             <!---->
-            <p:panel id="lifecycle-info-panel" style="margin: 20px; width: 75%">
+            <p:panel id="lifecycle-info-panel" style="margin: 20px; width: 1120px">
                 <h:form id="lifecycle-info-content-mode-selection">
 
                     <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
@@ -101,12 +101,9 @@
 
                     <p:fragment id="lifecycle-current-content">
 
-                        <p:panel header="Basic"
-                                 footer="Movie Details"
-                                 style="margin-bottom:20px"
-                                 id="current-discussion"
-                                 name="discussion"
-                                 rendered="#{selectOneContentView.content.equals('Discussion')}"
+                        <p:panel header="Basic" footer="Movie Details"
+                                 style="margin-bottom:20px" id="current-discussion"
+                                 name="discussion" rendered="#{selectOneContentView.content.equals('Discussion')}"
                         >
                             <h:panelGrid columns="2" cellpadding="10">
                                 <p:graphicImage library="images" name="default-profile.png"/>
