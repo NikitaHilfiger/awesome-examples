@@ -23,6 +23,9 @@
                                      filterMatchMode="startsWith"
                                      required="true"
                     >
+                        <f:selectItem itemLabel="" itemValue="#{null}"
+                                      noSelectionOption="true"/>
+
                         <f:selectItems value="#{configurationElementService.mockConfigurationElements}"
                                        var="configurationElement"
                                        itemValue="#{configurationElement}"
@@ -40,21 +43,30 @@
 
                     <p:outputLabel for="artifact" value="Артефакт: "/>
                     <p:selectOneMenu id="artifact"
-                                     value="#{selectOneMenuView.city}"
-                                     effect="fold"
-                                     editable="true"
-                                     required="true">
-                        <f:selectItem itemLabel="Select One" itemValue=""/>
-                        <f:selectItems value="#{selectOneMenuView.cities}"/>
+                                     var="a"
+                                     converter="#{artifactConverter}"
+                                     panelStyle="width:180px"
+                                     value="#{release.artifact}"
+                                     effect="fade"
+                                     style="width:160px"
+                                     filter="true"
+                                     filterMatchMode="startsWith"
+                                     required="false"
+                    >
+                        <f:selectItem itemLabel="" itemValue="#{null}"
+                                      noSelectionOption="true"/>
+
+                        <f:selectItems value="#{artifactService.mockArtifacts}" var="art"
+                                       itemValue="#{art}" itemLabel="#{art.name}"/>
+
+                        <p:column>
+                            <h:outputText value="#{a.name}"/>
+                        </p:column>
                     </p:selectOneMenu>
 
                     <p:outputLabel for="version" value="Версия: "/>
-                    <p:inputText id="version" required="true"/>
-
-                    <p:outputLabel for="route" value="Маршрут:"/>
-                    <p:selectOneMenu id="route"
-                                     value="#{selectOneMenuView.theme}"
-                                     converter="#{themeConverter}"
+                    <p:selectOneMenu id="version"
+                                     value="#{release.version}"
                                      panelStyle="width:180px"
                                      effect="fade"
                                      var="t"
@@ -63,6 +75,36 @@
                                      filterMatchMode="startsWith"
                                      required="true"
                     >
+                        <f:selectItem itemLabel="" itemValue="#{null}"
+                                      noSelectionOption="true"/>
+
+                        <f:selectItems value="#{artifactService.mockArtifacts.get(1).getVersions()}"
+                                       var="v"
+                                       itemValue="#{v}"
+                                       itemLabel="#{v}"
+                        />
+
+                        <p:column>
+                            <h:outputText value="#{t}"/>
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="route" value="Маршрут:"/>
+                    <p:selectOneMenu id="route"
+                                     value="#{selectOneMenuView.theme}"
+                                     converter="#{themeConverter}"
+                                     panelStyle="width:180px"
+                                     effect="fade"
+                                     var="t"
+                                     style="width:180px"
+                                     filter="true"
+                                     filterMatchMode="startsWith"
+                                     required="true"
+                    >
+                        <f:selectItem itemLabel="" itemValue="#{null}"
+                                      noSelectionOption="true"/>
+
                         <f:selectItems value="#{selectOneMenuView.themes}"
                                        var="theme"
                                        itemValue="#{theme}"

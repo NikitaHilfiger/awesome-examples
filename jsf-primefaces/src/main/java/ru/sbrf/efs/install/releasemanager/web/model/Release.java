@@ -21,7 +21,7 @@ public class Release {
 
     private ConfigurationElement configurationElement;
 
-    private Artifact artifact;
+    @Builder.Default private Artifact artifact = Artifact.builder().name("22").build();
 
     private String version;
 

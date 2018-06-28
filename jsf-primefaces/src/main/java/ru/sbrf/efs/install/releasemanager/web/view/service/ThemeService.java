@@ -15,9 +15,9 @@ public class ThemeService {
     @PostConstruct
     public void init() {
         themes = new ArrayList<Theme>();
-        themes.add(new Theme(0, "Afterdark", "afterdark"));
-        themes.add(new Theme(1, "Afternoon", "afternoon"));
-        themes.add(new Theme(2, "Afterwork", "afterwork"));
+        themes.add(new Theme(0, "DEV -> TEST -> PROD", "DEV -> TEST -> PROD"));
+//        themes.add(new Theme(1, "Afternoon", "afternoon"));
+/*        themes.add(new Theme(2, "Afterwork", "afterwork"));
         themes.add(new Theme(3, "Aristo", "aristo"));
         themes.add(new Theme(4, "Black-Tie", "black-tie"));
         themes.add(new Theme(5, "Blitzer", "blitzer"));
@@ -52,7 +52,7 @@ public class ThemeService {
         themes.add(new Theme(34, "Trontastic", "trontastic"));
         themes.add(new Theme(35, "UI-Darkness", "ui-darkness"));
         themes.add(new Theme(36, "UI-Lightness", "ui-lightness"));
-        themes.add(new Theme(37, "Vader", "vader"));
+        themes.add(new Theme(37, "Vader", "vader"));*/
     }
 
     public List<Theme> getThemes() {

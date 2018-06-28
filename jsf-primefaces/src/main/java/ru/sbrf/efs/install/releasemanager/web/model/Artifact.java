@@ -1,12 +1,16 @@
 package ru.sbrf.efs.install.releasemanager.web.model;
 
+import lombok.Builder;
 import lombok.Data;
-import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Data
-@Component
+@Builder
 public class Artifact {
 
-    private final String name;
+    private String name;
+
+    private List<String> versions;
 
 }

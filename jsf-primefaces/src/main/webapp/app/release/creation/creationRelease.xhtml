@@ -4,13 +4,17 @@
 >
     <ui:define name="content">
 
-        <ui:insert name="creation-toolbox">
-            <ui:include src="/app/release/creation/components/creationToolbar.xhtml"/>
-        </ui:insert>
+        <div style="width: 1200px">
 
-        <ui:insert name="creation-form">
-            <ui:include src="/app/release/creation/components/creationForm.xhtml"/>
-        </ui:insert>
+            <ui:insert name="creation-toolbox">
+                <ui:include src="/app/release/creation/components/creationToolbar.xhtml"/>
+            </ui:insert>
+
+            <ui:insert name="creation-form">
+                <ui:include src="/app/release/creation/components/creationForm.xhtml"/>
+            </ui:insert>
+
+        </div>
 
     </ui:define>
 
