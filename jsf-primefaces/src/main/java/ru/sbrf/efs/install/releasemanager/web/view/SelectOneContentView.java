@@ -9,7 +9,11 @@ import org.springframework.stereotype.Component;
 @Setter
 public class SelectOneContentView {
 
+    private String version;
+
     private String content = "";
+
+    private Boolean isArtifactVersionSelected;
 
     private Boolean isDiscussSelected;
 
@@ -21,5 +25,9 @@ public class SelectOneContentView {
 
     public void setIsHistorySelected(Boolean setIsHistorySelected) {
         this.isDiscussSelected = false;
+    }
+
+    public void changeArtifactVersion() {
+        this.isArtifactVersionSelected = true;
     }
 }
