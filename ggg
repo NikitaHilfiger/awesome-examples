@@ -1,0 +1,29 @@
+@JsonComponent
+public class SignMethodConverter {
+
+    public static class Serialize extends JsonSerializer<SignMethod> {
+
+        @Override
+        public void serialize(SignMethod value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
+            if (value == null) {
+                gen.writeNull();
+            } else {
+                gen.writeString(value.getCode());
+            }
+        }
+    }
+
+    public static class Deserialize extends JsonDeserializer<SignMethod> {
+
+        @Override
+        public SignMethod deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            String code = p.getValueAsString();
+
+            if (code == null) {
+                return null;
+            } else {
+                return new SignMethod(code);
+            }
+        }
+    }
+}
